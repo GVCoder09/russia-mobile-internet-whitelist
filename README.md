@@ -1,12 +1,8 @@
 # russia mobile internet whitelist
 
-<p align="center"><b>🇺🇸 please, star this repository so more people can see it.<br>🇷🇺 пожалуйста, поставьте звезду этому репозиторию, чтобы больше людей увидели его.<br>🇺🇦 будь ласка, поставте зірку цьому репозиторію, щоб більше людей побачили його.</b><br><br><em>🇺🇸 discord server: active help, community support, and huge amount of info that doesn't fit here.<br>🇷🇺 дискорд сервер: активная помощь, обсуждения и горы полезной инфы, которая не влезает в readme.<br>🇺🇦 діскорд сервер: активна допомога, обговорення та гори корисної інфи, яка не влізає в readme.</em><br><br><a href="https://discord.gg/QPBdMf8dxG"><img src="https://img.shields.io/discord/1282083082849091615?style=for-the-badge&logo=discord" alt="discord"></a></p>
 
-🇺🇸 a list of domains and ips that stay live in russia when the mobile internet gets "restricted".
 <br>
 🇷🇺 список доменов и ip-адресов, которые остаются доступными в россии, когда мобильный интернет «ограничивают».
-<br>
-🇺🇦 список доменів та ip-адрес, які залишаються доступними в росії, коли мобільний інтернет «обмежують».
 
 ---
 
@@ -127,83 +123,3 @@ this readme is just the tip of the iceberg. the discord is a chaotic but incredi
 > **[посмотреть cidrwhitelist.txt](./cidrwhitelist.txt)**
 
 ---
-
-### **🇺🇦 українська**
-
-#### у чому проблема?
-
-мобільний інтернет в росії обмежують, але слово «обмежують» не описує всього хаосу. єдиних правил немає. ситуація залежить від регіону, оператора, конкретної вежі, до якої ви підключені, і навіть від вашого віртуального оператора (mvno). наприклад, yota, яка належить мегафону і працює на його ж мережах, може мати радикально інший білий список, ніж сам мегафон.
-
-ось, з чим ви можете зіткнутися:
-*   **повний блекаут:** у деяких регіонах, особливо в селах (де уряд вважає, що технічно грамотних людей немає), інтернет просто вимикають. іноді працюють буквально два-три сайти держпослуг.
-*   **жорстокий тротлінг:** в інших місцях будь-який трафік на адреси не з білого списку ріжеться до 14 кбіт/с.
-*   **вайтлістинг в дії:** ваші спроби підключитися до «заборонених» серверів будуть або отримувати `connection reset`, або просто летіти в чорну діру з помилкою `timeout`.
-
-#### списки (та їх нове призначення)
-
-ці списки — результат роботи спільноти. під час блокувань люди сканують величезні діапазони ip-адрес, щоб знайти те, що ще живе. **важливо:** список є універсальним, зібраним з різних операторів та регіонів.
-
-*   `whitelist.txt`: список (саб)доменів (sni), які дозволені.
-*   `ipwhitelist.txt`: список окремих ip-адрес з білого списку.
-*   `cidrwhitelist.txt`: підмережі з білого списку в cidr-нотації.
-
-#### ⚠️ увага: ip/cidr-вайтлістинг та феномен «щита»
-
-проблема ускладнилася. оператори переходять на комбіновану модель `ip + sni`. це означає, що навіть якщо ви ідеально підмінили домен, з'єднання заблокують, якщо ip вашого сервера не входить до дозволеного списку.
-
-також існує дивний феномен, який ми називаємо **«щит»** (перевірено на т2/теле2).
-*   **що це?** «щит» дає вам імунітет до вайтлістів. це не тариф і не послуга. це секретний прапорець в системі оператора.
-*   **як його отримують?** його видають або «особливим» людям, або дуже наполегливим скаржникам (наприклад, після погроз судом через непрацюючі держпослуги).
-
-#### як вижити: інструменти та стратегії
-
-**1. як зрозуміти, що вас зачепило?**
-*   `yandex.ru` працює? якщо так, зв'язок є.
-*   `2ip.ru` або `1.1.1.1` не працюють? якщо так — ви під вайтлістом.
-
-**2. рекомендовані клієнти та протоколи**
-найкращий вибір — **vless** або **trojan**. завжди використовуйте шифрування (reality/tls).
-*   **ios:** streisand, happ.
-*   **android:** husi, v2rayng.
-*   **пк (windows / linux):** throne або nekobox (форк від **qr243vbi**). **увага: оригінальний nekobox застарів, не використовуйте його!**
-
-**3. ваші варіанти**
-1.  **sni-спуфінг:** найпростіший метод.
-2.  **знайти сервер у білому списку:** шукайте хостинг-провайдера (є і в рф, і за її межами), чиї ip-підмережі є в наших списках.
-3.  **схема з двома серверами:** найнадійніше рішення. `клієнт -> російський сервер (з «білим» ip) -> закордонний сервер -> інтернет`.
-
-**4. зайдіть у діскорд сервер!**
-цей readme — лише верхівка айсберга. діскорд — це хаотична, але неймовірно цінна жива база знань. там люди постійно допомагають одне одному.
-
-> **[подивитися whitelist.txt](./whitelist.txt)**
->
-> **[подивитися ipwhitelist.txt](./ipwhitelist.txt)**
->
-> **[подивитися cidrwhitelist.txt](./cidrwhitelist.txt)**
-
----
-
-### 🇺🇸 license | 🇷🇺 лицензия | 🇺🇦 ліцензія
-
-mit
-
----
-
-### 🍺🍺🍺 donations
-
-<sup>BTC</sup>
-`bc1q5cws5mx9x784kwn3zj6uz0q9cvdpj65lzenv6v`
-
-<sup>SOL</sup>
-`5iB8p3tMEtAQ1qaCJNHyd5Fm74DsT6qjud9Gg7TAMr5T`
-
-<sup>ETH</sup>
-`0x98e52948c78707b2003deb550a63a4705afccc1a`
-
-<a href="https://nowpayments.io/donation/hxehex" target="_blank" rel="noreferrer noopener">
-   <img src="https://nowpayments.io/images/embeds/donation-button-black.svg" alt="Cryptocurrency & Bitcoin donation button by NOWPayments">
-</a>
-
-### ⭐⭐⭐ star history
-
-<a href="https://www.star-history.com/#hxehex/russia-mobile-internet-whitelist&type=date&legend=top-left"><picture><source media="(prefers-color-scheme: dark)" srcset="https://api.star-history.com/svg?repos=hxehex/russia-mobile-internet-whitelist&type=date&theme=dark&legend=top-left" /><source media="(prefers-color-scheme: light)" srcset="https://api.star-history.com/svg?repos=hxehex/russia-mobile-internet-whitelist&type=date&legend=top-left" /><img alt="Star History Chart" src="https://api.star-history.com/svg?repos=hxehex/russia-mobile-internet-whitelist&type=date&legend=top-left" /></picture></a>
